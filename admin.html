@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vertex Content Admin</title>
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <div class="top">
+      <div class="wrap">
+        <span><strong>Vertex Business Solutions</strong> — Content editor</span
+        ><a href="index.html">View website</a>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="wrap">
+        <a class="brand" href="index.html"><img src="assets/logo3.jpeg" width="50" height="50" alt="Prothoma Consultancy"><p>Prothoma Consultancy</p></a>
+        <div class="links">
+          <a href="index.html">Website</a
+          ><a class="active" href="admin.html">Content Admin</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <div class="eyebrow" style="color: #087ea4">Demo content manager</div>
+          <h1>Add services and training courses.</h1>
+          <p>
+            Changes are saved in this browser and appear automatically on the
+            website pages.
+          </p>
+          <div class="notice">
+            This admin is for the prototype only. A live site needs secure user
+            login and a database before real staff use it.
+          </div>
+        </div>
+      </section>
+      <section class="section tint">
+        <div class="wrap">
+          <div id="saved" class="success">
+            Saved. Refresh the website page to see the new content.
+          </div>
+          <div class="admin-grid">
+            <div>
+              <form id="serviceForm" class="form">
+                <h2
+                  style="
+                    margin-top: 0;
+                    color: #073b58;
+                    font-family: Georgia, serif;
+                  "
+                >
+                  Add a service
+                </h2>
+                <div class="field">
+                  <label>Service title</label
+                  ><input
+                    name="title"
+                    required
+                    placeholder="e.g. Payroll Management"
+                  />
+                </div>
+                <div class="field">
+                  <label>Description</label
+                  ><textarea
+                    name="text"
+                    required
+                    placeholder="Short service description"
+                  ></textarea>
+                </div>
+                <button class="button">Add service</button>
+              </form>
+              <div class="form" style="margin-top: 20px">
+                <b>Existing services</b>
+                <div id="serviceItems" class="admin-items"></div>
+              </div>
+            </div>
+            <div>
+              <form id="courseForm" class="form">
+                <h2
+                  style="
+                    margin-top: 0;
+                    color: #073b58;
+                    font-family: Georgia, serif;
+                  "
+                >
+                  Add a training course
+                </h2>
+                <div class="field">
+                  <label>Course title</label
+                  ><input
+                    name="title"
+                    required
+                    placeholder="e.g. Applied VAT Training"
+                  />
+                </div>
+                <div class="field">
+                  <label>Description</label
+                  ><textarea
+                    name="text"
+                    required
+                    placeholder="Short course description"
+                  ></textarea>
+                </div>
+                <button class="button">Add course</button>
+              </form>
+              <div class="form" style="margin-top: 20px">
+                <b>Existing courses</b>
+                <div id="courseItems" class="admin-items"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-9b5da131-cc8a-40ee-903e-aad1d40cf7e9" data-elfsight-app-lazy></div>
+      <div class="wrap">
+        <div class="copyright">Vertex demo content manager.</div>
+      </div>
+    </footer>
+    <script src="assets/site.js"></script>
+  </body>
+</html>
