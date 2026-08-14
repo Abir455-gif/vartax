@@ -917,3 +917,317 @@ footer {
     background: rgba(255, 255, 255, .1);
     outline: 1px solid rgba(255, 255, 255, .35)
 }
+/* =========================================================
+   PROTHOMA CONSULTANCY FOOTER
+========================================================= */
+
+.site-footer {
+    position: relative;
+    background: #071f29;
+    color: #b8c5c8;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* subtle top accent */
+.site-footer::before {
+    content: "";
+    display: block;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #07516f,
+        #0b7891,
+        #d58b00,
+        #0b7891,
+        #07516f
+    );
+}
+
+
+/* ---------------------------------------------------------
+   MAIN FOOTER
+--------------------------------------------------------- */
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.2fr;
+    gap: 55px;
+    padding: 65px 0 50px;
+}
+
+
+/* ---------------------------------------------------------
+   COMPANY
+--------------------------------------------------------- */
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-brand img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.footer-brand strong {
+    display: block;
+    color: #eee6da;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+.footer-brand span {
+    display: block;
+    margin-top: 5px;
+    color: #38c9f5;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-description {
+    max-width: 340px;
+    margin: 20px 0 18px;
+    color: #9eafb2;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer-map-link {
+    display: inline-block;
+    color: #d9a13a;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.footer-map-link:hover {
+    color: #f0b84d;
+}
+
+
+/* ---------------------------------------------------------
+   COLUMNS
+--------------------------------------------------------- */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h4 {
+    position: relative;
+    margin: 2px 0 21px;
+    padding-bottom: 10px;
+    color: #eee6da;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+}
+
+.footer-column h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 28px;
+    height: 2px;
+    background: #d58b00;
+}
+
+.footer-column > a {
+    margin: 0 0 11px;
+    color: #9eafb2;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.footer-column > a:hover {
+    color: #38c9f5;
+    transform: translateX(3px);
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT
+--------------------------------------------------------- */
+
+.footer-contact > a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-icon {
+    width: 27px;
+    height: 27px;
+    min-width: 27px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #0b3b4b;
+    color: #38c9f5;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.footer-contact small {
+    margin-left: 4px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: #123e36;
+    color: #68d5b4;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM
+--------------------------------------------------------- */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,.09);
+}
+
+.copyright {
+    color: #7f9296;
+    font-size: 11px;
+}
+
+
+/* ---------------------------------------------------------
+   SOCIAL
+--------------------------------------------------------- */
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.footer-social a {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 50%;
+    background: rgba(255,255,255,.03);
+    color: #b9c9cc;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.footer-social a:hover {
+    background: #087ea4;
+    border-color: #087ea4;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .footer-main {
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 35px;
+    }
+
+    .footer-company {
+        grid-column: 1 / -1;
+        max-width: 650px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+@media (max-width: 700px) {
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 45px 0 35px;
+    }
+
+    .footer-company {
+        grid-column: auto;
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 18px 0 25px;
+    }
+
+}
+
+/* @media (max-width: 600px) {
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 25px;
+        padding: 48px 0 38px;
+    }
+
+    .footer-company {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand strong {
+        font-size: 19px;
+    }
+
+    .footer-column h4 {
+        font-size: 16px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 0 25px;
+    }
+
+} */
+
+
+/* @media (max-width: 420px) {
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-company {
+        grid-column: auto;
+    }
+
+} */

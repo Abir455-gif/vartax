@@ -38,11 +38,11 @@ const defaults = {
 };
 function data(key) {
   return JSON.parse(
-    localStorage.getItem("vertex_" + key) || JSON.stringify(defaults[key]),
+    localStorage.getItem("Prothoma Consultancy_" + key) || JSON.stringify(defaults[key]),
   );
 }
 function save(key, value) {
-  localStorage.setItem("vertex_" + key, JSON.stringify(value));
+  localStorage.setItem("Prothoma Consultancy_" + key, JSON.stringify(value));
 }
 function renderCards(id, key) {
   const el = document.getElementById(id);
@@ -95,8 +95,8 @@ function login() {
     e.preventDefault();
     const u = document.getElementById("user").value,
       p = document.getElementById("pass").value;
-    if (u === "demo@vertex.com" && p === "demo123") {
-      localStorage.setItem("vertex_demo", "yes");
+    if (u === "demo@Prothoma Consultancy.com" && p === "demo123") {
+      localStorage.setItem("Prothoma Consultancy_demo", "yes");
       location.href = "demo-dashboard.html";
     } else
       document.getElementById("loginError").textContent =
@@ -104,10 +104,10 @@ function login() {
   });
 }
 function guard() {
-  if (localStorage.getItem("vertex_demo") !== "yes")
+  if (localStorage.getItem("Prothoma Consultancy_demo") !== "yes")
     location.href = "https://bangladesh.manager.io/businesses";
   document.getElementById("logout")?.addEventListener("click", () => {
-    localStorage.removeItem("vertex_demo");
+    localStorage.removeItem("Prothoma Consultancy_demo");
     location.href = "https://bangladesh.manager.io/businesses";
   });
 }
