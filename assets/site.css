@@ -616,13 +616,13 @@ a {
     display: block
 }
 
-footer {
+/* footer {
     background: #052f46;
     color: #bad1d9;
     padding: 40px 0 16px
-}
+} */
 
-.foot {
+/* .foot {
     display: flex;
     justify-content: space-between;
     gap: 30px
@@ -638,7 +638,7 @@ footer {
 .foot b {
     color: #fff;
     font-size: 13px
-}
+} */
 
 .copyright {
     border-top: 1px solid #286078;
