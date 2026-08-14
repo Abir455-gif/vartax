@@ -80,7 +80,7 @@ function nav() {
     const contact = links.querySelector('[href="contact.html"]');
     const item = document.createElement("a");
     item.href = "useful-links.html";
-    item.textContent = "Useful Links";
+    item.textContent = "Links";
     contact ? links.insertBefore(item, contact) : links.appendChild(item);
   }
   document
