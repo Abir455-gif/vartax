@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="Contact Prothoma Consultancy for Tax, VAT, Accounting, ERP Software, Company Law and Professional Training.">
+    <title>Contact Us | Prothoma Consultancy</title>
+    <link rel="stylesheet" href="assets/site.css">
+
+    <style>
+        /* ---------------------------------------------------------
+           CONTACT PAGE
+           The supplied image is used only as visual inspiration.
+           This page follows the design language of the homepage.
+        --------------------------------------------------------- */
+
+        .contact-hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 88% 20%, rgba(48, 194, 230, .18), transparent 28%),
+                linear-gradient(110deg, #084b6b 0%, #09627e 58%, #117b90 100%);
+            padding: 76px 0 82px;
+        }
+
+        .contact-hero::after {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            right: -180px;
+            top: -190px;
+            border: 42px solid rgba(154, 151, 69, .24);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-hero .wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-eyebrow {
+            color: #38c9f5;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .contact-hero h1 {
+            max-width: 800px;
+            margin: 0 0 18px;
+            color: #eee6da;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 1.12;
+        }
+
+        .contact-hero p {
+            max-width: 680px;
+            margin: 0;
+            color: #d7eaee;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .contact-main {
+            background: #171b1c;
+            padding: 75px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .contact-section-label {
+            color: #38c9f5;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .contact-grid h2 {
+            margin: 0 0 16px;
+            color: #e8e0d2;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(29px, 3vw, 40px);
+            line-height: 1.25;
+        }
+
+        .contact-intro {
+            color: #adb9bb;
+            font-size: 14px;
+            line-height: 1.85;
+            margin: 0 0 28px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 13px;
+        }
+
+        .contact-info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 17px;
+            background: #101516;
+            border: 1px solid rgba(255,255,255,.11);
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(56,201,245,.38);
+        }
+
+        .contact-info-icon {
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #073f51;
+            color: #38c9f5;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .contact-info-card strong {
+            display: block;
+            color: #e8e0d2;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .contact-info-card span,
+        .contact-info-card a {
+            color: #adbabc;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .contact-info-card a {
+            text-decoration: none;
+        }
+
+        .contact-info-card a:hover {
+            color: #38c9f5;
+        }
+
+        .contact-brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+
+        .contact-brand img {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+        }
+
+        .contact-brand-name {
+            color: #eee6da;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .contact-brand-name span {
+            display: block;
+            margin-top: 4px;
+            color: #38c9f5;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-form {
+            background: #101516;
+            border: 1px solid rgba(255,255,255,.12);
+            padding: 34px;
+        }
+
+        .contact-form h3 {
+            margin: 0 0 6px;
+            color: #e8e0d2;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+        }
+
+        .contact-form > p {
+            margin: 0 0 25px;
+            color: #9eacad;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
+        }
+
+        .contact-field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .contact-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .contact-field label {
+            color: #d8d4ca;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .contact-field input,
+        .contact-field select,
+        .contact-field textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgba(255,255,255,.14);
+            background: #191e1f;
+            color: #e8e8e8;
+            padding: 12px 13px;
+            outline: none;
+            font: inherit;
+            font-size: 13px;
+            border-radius: 0;
+        }
+
+        .contact-field input:focus,
+        .contact-field select:focus,
+        .contact-field textarea:focus {
+            border-color: #1684a4;
+        }
+
+        .contact-field textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .contact-submit {
+            margin-top: 20px;
+            border: 0;
+            background: #d58b00;
+            color: #fff;
+            padding: 13px 22px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .contact-submit:hover {
+            background: #e39a0a;
+            transform: translateY(-1px);
+        }
+
+        .contact-success {
+            display: none;
+            margin-bottom: 18px;
+            padding: 12px 14px;
+            background: #123c35;
+            border: 1px solid rgba(72, 204, 164, .35);
+            color: #b8efdd;
+            font-size: 12px;
+        }
+
+        .contact-success.show {
+            display: block;
+        }
+
+        .contact-location {
+            background: #084b6b;
+            padding: 75px 0;
+        }
+
+        .contact-location-grid {
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .contact-location-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-location h2 {
+            margin: 0 0 14px;
+            color: #eee6da;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(29px, 3vw, 40px);
+            line-height: 1.25;
+        }
+
+        .contact-location-copy p {
+            color: #c5dce1;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 0 0 23px;
+        }
+
+        .map-card {
+            padding: 8px;
+            background: #101516;
+            border: 1px solid rgba(255,255,255,.15);
+            box-shadow: 10px 10px 0 rgba(0,0,0,.12);
+        }
+
+        .map-card iframe {
+            display: block;
+            width: 100%;
+            height: 385px;
+            border: 0;
+        }
+
+        .map-link {
+            display: inline-flex;
+            width: fit-content;
+            padding: 12px 19px;
+            background: #d58b00;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .contact-social {
+            background: #0d303b;
+            padding: 65px 0;
+            text-align: center;
+        }
+
+        .contact-social h2 {
+            margin: 0 0 10px;
+            color: #e8e0d2;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(28px, 3vw, 38px);
+        }
+
+        .contact-social p {
+            max-width: 600px;
+            margin: 0 auto 22px;
+            color: #adbfc2;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .facebook-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #1877f2;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .facebook-mark {
+            width: 22px;
+            height: 22px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #fff;
+            color: #1877f2;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        @media (max-width: 850px) {
+            .contact-grid,
+            .contact-location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-location-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero {
+                padding: 58px 0 65px;
+            }
+
+            .contact-main,
+            .contact-location {
+                padding: 58px 0;
+            }
+
+            .contact-form {
+                padding: 23px;
+            }
+
+            .contact-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-field.full {
+                grid-column: auto;
+            }
+
+            .map-card iframe {
+                height: 330px;
+            }
+
+            .contact-brand img {
+                width: 58px;
+                height: 58px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- EXISTING TOP BAR -->
+    <div class="top">
+        <div class="wrap">
+            <span>
+                <strong>Vertex Business Solutions</strong> — Tax, VAT, ERP &amp; Training
+            </span>
+            <span>
+                +8801875 174417 &nbsp; | &nbsp; subrosumon@gmail.com
+            </span>
+        </div>
+    </div>
+
+    <!-- EXISTING NAVIGATION -->
+    <nav class="nav">
+        <div class="wrap">
+
+            <a class="brand" href="index.html">
+                <img src="assets/prothoma-logo-mark.png" width="50" height="50" alt="Prothoma Consultancy">
+                <p>Prothoma Consultancy</p>
+            </a>
+
+            <button class="mobile-toggle" aria-label="Open navigation">☰</button>
+
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="software.html">ERP Software</a>
+                <a href="training.html">Training</a>
+                <a href="about.html">About</a>
+                <a class="active" href="contact.html">Contact</a>
+            </div>
+
+            <a class="nav-cta" href="https://bangladesh.manager.io/businesses">
+                Free Software Demo
+            </a>
+
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="contact-hero">
+            <div class="wrap">
+                <div class="contact-eyebrow">CONTACT PROTHOMA CONSULTANCY</div>
+                <h1>Let's talk about your business.</h1>
+                <p>
+                    Whether you need support with Tax, VAT, Accounting, ERP Software,
+                    Company Law or Professional Training, our team is ready to help.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACT DETAILS + FORM -->
+        <section class="contact-main">
+            <div class="wrap contact-grid">
+
+                <div>
+
+                    <div class="contact-section-label">GET IN TOUCH</div>
+                    <h2>We are here to help.</h2>
+
+                    <p class="contact-intro">
+                        Reach out to Prothoma Consultancy using any of the contact
+                        details below. You can also send us a message and tell us
+                        what your business needs.
+                    </p>
+
+                    <div class="contact-info">
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">⌖</div>
+                            <div>
+                                <strong>Office</strong>
+                                <a href="https://maps.app.goo.gl/i12rnvKziMWYuCQS8"
+                                    target="_blank" rel="noopener">
+                                    Creative Faith Garden, 225/1/A, South Pirebag,
+                                    Level #6, 60 Feet Amtola, Mirpur, Dhaka-1216
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">☎</div>
+                            <div>
+                                <strong>Phone</strong>
+                                <a href="tel:+8801875174417">+8801875 174417</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">@</div>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:subrosumon@outlook.com">
+                                    subrosumon@outlook.com
+                                </a><br>
+                                <a href="mailto:subrosumon@gmail.com">
+                                    subrosumon@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">◎</div>
+                            <div>
+                                <strong>Website</strong>
+                                <a href="https://www.prothoma.tax"
+                                    target="_blank" rel="noopener">
+                                    www.prothoma.tax
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">f</div>
+                            <div>
+                                <strong>Facebook</strong>
+                                <a href="https://www.facebook.com/Prothoma.org"
+                                    target="_blank" rel="noopener">
+                                    www.facebook.com/Prothoma.org
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- LOGO FROM THE SUPPLIED REFERENCE IMAGE -->
+                    <div class="contact-brand">
+                        <img src="assets/prothoma-logo-mark.png"
+                            alt="Prothoma Consultancy logo">
+                        <div class="contact-brand-name">
+                            Prothoma Consultancy
+                            <span>Tax • VAT • Company Law • Advisory</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FORM -->
+                <form class="contact-form"
+                    onsubmit="event.preventDefault(); document.getElementById('sent').classList.add('show'); this.reset();">
+
+                    <h3>Request a consultation</h3>
+                    <p>
+                        Send us your requirement and we can discuss the right
+                        solution for your business.
+                    </p>
+
+                    <div id="sent" class="contact-success">
+                        Thank you — your request has been recorded in this demo.
+                    </div>
+
+                    <div class="contact-form-grid">
+
+                        <div class="contact-field">
+                            <label for="name">Your name</label>
+                            <input id="name" required placeholder="Your full name">
+                        </div>
+
+                        <div class="contact-field">
+                            <label for="phone">Phone / Email</label>
+                            <input id="phone" required placeholder="+880... / name@email.com">
+                        </div>
+
+                        <div class="contact-field full">
+                            <label for="service">What do you need help with?</label>
+                            <select id="service">
+                                <option>Tax &amp; VAT Consultancy</option>
+                                <option>Accounting &amp; Finance</option>
+                                <option>ERP Software</option>
+                                <option>Company Registration</option>
+                                <option>Professional Training</option>
+                                <option>Business Advisory</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="contact-field full">
+                            <label for="message">Message</label>
+                            <textarea id="message"
+                                placeholder="Tell us a little about your requirement"></textarea>
+                        </div>
+
+                    </div>
+
+                    <button class="contact-submit" type="submit">
+                        Send Request →
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+        <!-- LOCATION -->
+        <section class="contact-location">
+            <div class="wrap contact-location-grid">
+
+                <div class="contact-location-copy">
+                    <div class="contact-section-label">OUR LOCATION</div>
+
+                    <h2>Visit our office in Mirpur, Dhaka.</h2>
+
+                    <p>
+                        Find us at Creative Faith Garden, South Pirebag.
+                        The address is linked directly to Google Maps for
+                        easy navigation.
+                    </p>
+
+                    <a class="map-link"
+                        href="https://maps.app.goo.gl/i12rnvKziMWYuCQS8"
+                        target="_blank" rel="noopener">
+                        Open in Google Maps →
+                    </a>
+                </div>
+
+                <div class="map-card">
+                    <iframe
+                        src="https://www.google.com/maps?q=23.7851025,90.3663825&z=17&output=embed"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Prothoma Consultancy location on Google Maps">
+                    </iframe>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SOCIAL -->
+        <section class="contact-social">
+            <div class="wrap">
+                <div class="contact-section-label">FOLLOW US</div>
+
+                <h2>Stay connected with Prothoma.</h2>
+
+                <p>
+                    Follow our Facebook page for updates about our services,
+                    training programmes and business information.
+                </p>
+
+                <a class="facebook-button"
+                    href="https://www.facebook.com/Prothoma.org"
+                    target="_blank" rel="noopener">
+                    <span class="facebook-mark">f</span>
+                    Visit our Facebook Page
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- EXISTING WHATSAPP WIDGET + FOOTER -->
+    <footer>
+        <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-9b5da131-cc8a-40ee-903e-aad1d40cf7e9"
+            data-elfsight-app-lazy></div>
+
+        <div class="wrap">
+            <div class="copyright">
+                © 2026 Vertex Business Solutions.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/site.js"></script>
+
+</body>
+
+</html>
