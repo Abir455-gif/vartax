@@ -260,6 +260,98 @@ function dashboardDemo() {
   );
   render("dashboard");
 }
+function paymentModal() {
+  const items = document.querySelectorAll(".payment-item[data-copy]");
+  if (!items.length) return;
+
+  const toast = document.createElement("div");
+  toast.className = "payment-toast";
+  document.body.appendChild(toast);
+  let toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+    } catch (e) {}
+    ta.remove();
+    return Promise.resolve();
+  }
+
+  const overlay = document.createElement("div");
+  overlay.className = "payment-modal-overlay";
+  overlay.innerHTML =
+    '<div class="payment-modal" role="dialog" aria-modal="true">' +
+    '<button type="button" class="payment-modal-close" aria-label="Close">&times;</button>' +
+    '<div class="payment-modal-logo" id="paymentModalLogo"></div>' +
+    '<h3 id="paymentModalTitle"></h3>' +
+    '<div class="payment-modal-number" id="paymentModalNumber"></div>' +
+    '<p class="payment-modal-hint">Send Money অপশন ব্যবহার করে এই নাম্বারে পেমেন্ট পাঠান।</p>' +
+    '<button type="button" class="button" id="paymentModalCopy">Copy Number</button>' +
+    "</div>";
+  document.body.appendChild(overlay);
+
+  const titleEl = overlay.querySelector("#paymentModalTitle");
+  const numberEl = overlay.querySelector("#paymentModalNumber");
+  const logoEl = overlay.querySelector("#paymentModalLogo");
+  const copyBtn = overlay.querySelector("#paymentModalCopy");
+  const closeBtn = overlay.querySelector(".payment-modal-close");
+  let currentNumber = "";
+
+  function openModal(item) {
+    const number = item.dataset.copy;
+    const brand =
+      item.querySelector(".payment-brand strong")?.textContent.trim() || "";
+    const logoHTML = item.querySelector(".payment-logo")?.innerHTML || "";
+    currentNumber = number;
+    titleEl.textContent = brand;
+    numberEl.textContent = number;
+    logoEl.innerHTML = logoHTML;
+    overlay.classList.add("show");
+  }
+  function closeModal() {
+    overlay.classList.remove("show");
+  }
+
+  items.forEach((item) => {
+    item.setAttribute("role", "button");
+    item.setAttribute("tabindex", "0");
+    item.addEventListener("click", () => openModal(item));
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(item);
+      }
+    });
+  });
+
+  copyBtn.addEventListener("click", () => {
+    copyText(currentNumber).then(() =>
+      showToast("Number copied: " + currentNumber),
+    );
+  });
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+}
 document.addEventListener("DOMContentLoaded", () => {
   nav();
   renderCards("homeServices", "services");
@@ -270,6 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.body.dataset.guard === "demo") guard();
   dashboardDemo();
   admin();
+  paymentModal();
   if (!document.body.dataset.noWhatsapp)
     document.body.insertAdjacentHTML(
       "beforeend",
