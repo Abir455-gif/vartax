@@ -1112,17 +1112,66 @@ a {
     padding: 18px 16px;
     border: 1px solid rgba(255, 255, 255, .10);
     background: rgba(255, 255, 255, .035);
-    border-radius: 4px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     transition: .2s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .payment-item:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, .06);
     border-color: rgba(255, 255, 255, .20);
+}
+
+.payment-item:focus-visible {
+    outline: 2px solid #38c9f5;
+    outline-offset: 2px;
+}
+
+.payment-item.copied {
+    border-color: #38c9f5;
+    background: rgba(56, 201, 245, .10);
+}
+
+/* LOGO SWATCH (shared by payment cards and tax links) */
+
+.payment-logo,
+.tax-icon {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.tax-icon {
+    margin-bottom: 0;
+}
+
+.payment-logo .payment-fallback,
+.tax-icon .payment-fallback {
+    font: 800 14px Arial, sans-serif;
+    color: var(--navy);
+}
+
+.payment-logo img,
+.tax-icon img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+    background: #fff;
 }
 
 .payment-brand {
@@ -1142,6 +1191,143 @@ a {
     letter-spacing: .4px;
 }
 
+.payment-copy-hint {
+    display: block;
+    margin-top: 8px;
+    font-size: 9px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #6f8286;
+    font-weight: 700;
+}
+
+.payment-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 90px;
+    transform: translate(-50%, 10px);
+    background: #0b3b4b;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s ease;
+    z-index: 60;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+    white-space: nowrap;
+}
+
+.payment-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* PAYMENT DETAILS POPUP */
+
+.payment-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 15, 20, .72);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s ease;
+    padding: 20px;
+}
+
+.payment-modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.payment-modal {
+    position: relative;
+    width: min(360px, 100%);
+    background: #0c2733;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 10px;
+    padding: 34px 28px 28px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
+    transform: translateY(10px);
+    transition: .2s ease;
+}
+
+.payment-modal-overlay.show .payment-modal {
+    transform: translateY(0);
+}
+
+.payment-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: 0;
+    color: #9db3b8;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.payment-modal-logo {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    margin: 0 auto 16px;
+}
+
+.payment-modal-logo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+    background: #fff;
+}
+
+.payment-modal-logo span {
+    font: 800 18px Arial, sans-serif;
+    color: var(--navy);
+}
+
+.payment-modal h3 {
+    margin: 0 0 8px;
+    color: #eee6da;
+    font: 700 20px Georgia, "Times New Roman", serif;
+}
+
+.payment-modal-number {
+    font: 800 21px Consolas, monospace;
+    color: #38c9f5;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.payment-modal-hint {
+    font-size: 12px;
+    color: #9db3b8;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.payment-modal .button {
+    width: 100%;
+}
+
 
 /* bKASH */
 
@@ -1150,6 +1336,10 @@ a {
 }
 
 .payment-item.bkash .payment-brand strong {
+    color: #e2136e;
+}
+
+.payment-item.bkash .payment-fallback {
     color: #e2136e;
 }
 
@@ -1164,6 +1354,10 @@ a {
     color: #f58220;
 }
 
+.payment-item.nagad .payment-fallback {
+    color: #f58220;
+}
+
 
 /* ROCKET */
 
@@ -1175,6 +1369,10 @@ a {
     color: #b85ac1;
 }
 
+.payment-item.rocket .payment-fallback {
+    color: #7b2c83;
+}
+
 
 /* UPAY */
 
@@ -1184,6 +1382,10 @@ a {
 
 .payment-item.upay .payment-brand strong {
     color: #36c879;
+}
+
+.payment-item.upay .payment-fallback {
+    color: #159447;
 }
 
 
@@ -1238,12 +1440,6 @@ a {
 .tax-icon {
     width: 40px;
     height: 40px;
-    min-width: 40px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: #0b3b4b;
-    color: #38c9f5;
     font-weight: 800;
     font-size: 16px;
 }
