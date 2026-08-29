@@ -300,8 +300,11 @@ function paymentModal() {
     '<div class="payment-modal-logo" id="paymentModalLogo"></div>' +
     '<h3 id="paymentModalTitle"></h3>' +
     '<div class="payment-modal-number" id="paymentModalNumber"></div>' +
-    '<p class="payment-modal-hint">Send Money অপশন ব্যবহার করে এই নাম্বারে পেমেন্ট পাঠান।</p>' +
-    '<button type="button" class="button" id="paymentModalCopy">Copy Number</button>' +
+    '<p class="payment-modal-hint">অ্যাপ থেকে Send Money করুন, অথবা "Dial to Pay"-এ ট্যাপ করে সরাসরি ডায়াল করুন।</p>' +
+    '<div class="payment-modal-actions">' +
+    '<a class="button" id="paymentModalDial" href="#">Dial to Pay</a>' +
+    '<button type="button" class="button alt" id="paymentModalCopy">Copy Number</button>' +
+    "</div>" +
     "</div>";
   document.body.appendChild(overlay);
 
@@ -309,11 +312,13 @@ function paymentModal() {
   const numberEl = overlay.querySelector("#paymentModalNumber");
   const logoEl = overlay.querySelector("#paymentModalLogo");
   const copyBtn = overlay.querySelector("#paymentModalCopy");
+  const dialBtn = overlay.querySelector("#paymentModalDial");
   const closeBtn = overlay.querySelector(".payment-modal-close");
   let currentNumber = "";
 
   function openModal(item) {
     const number = item.dataset.copy;
+    const ussd = item.dataset.ussd;
     const brand =
       item.querySelector(".payment-brand strong")?.textContent.trim() || "";
     const logoHTML = item.querySelector(".payment-logo")?.innerHTML || "";
@@ -321,6 +326,12 @@ function paymentModal() {
     titleEl.textContent = brand;
     numberEl.textContent = number;
     logoEl.innerHTML = logoHTML;
+    if (ussd) {
+      dialBtn.href = "tel:" + ussd;
+      dialBtn.style.display = "";
+    } else {
+      dialBtn.style.display = "none";
+    }
     overlay.classList.add("show");
   }
   function closeModal() {
