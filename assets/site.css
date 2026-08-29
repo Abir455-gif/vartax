@@ -1325,8 +1325,15 @@ a {
     margin: 0 0 20px;
 }
 
+.payment-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .payment-modal .button {
     width: 100%;
+    text-align: center;
 }
 
 
